@@ -1,0 +1,16 @@
+{% if questions.has_other_pages %}
+    <div class="pagination">
+    <span class="step-links pagination">
+    {% if questions.has_previous %}
+        <a href="?page={{ questions.previous_page_number }}"><button type="button" class="listing_btn"><</button></a>
+    {% endif %}
+        <span class="current">
+        <button type="button"
+                class="listing_btn"> Page {{ questions.number }} of {{ questions.paginator.num_pages }}</button>
+    </span>
+        {% if questions.has_next %}
+            <a href="?page={{ questions.next_page_number }}"><button type="button" class="listing_btn">></button></a>
+        {% endif %}
+    </span>
+    </div>
+{% endif %}

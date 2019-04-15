@@ -1,0 +1,23 @@
+{% extends "asker/base.html" %}
+{% load staticfiles %}
+{% block content %}
+    <!-- Begin page content -->
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-9">
+                <div class="row">
+                    <span class="headline">New Questions</span>
+                    <a class="nav-link" href="{% url 'hot' %}"><span class="text_style">Hot Questions</span></a>
+                </div>
+                {% for question in questions %}
+                    {% include "asker/one_question.html" %}
+                {% endfor %}
+                {% include "asker/paginator.html" %}
+            </div>
+            <div class="col-3">
+                {% include "asker/right_tags.html" %}
+            </div>
+        </div>
+    </main>
+
+{% endblock content %}

@@ -1,0 +1,51 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white">
+        <div class="d-flex flex-grow-1">
+            <a class="navbar-brand" href="{% url 'index' %}"><span class="headline"> Asker</span></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                </form>
+            </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ask' %}"><span class="text_style">Ask</span></a>
+                </li>
+            </ul>
+            {% if user.is_authenticated %}
+                <ui class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <span class="text_style">{{ user.get_username }}</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="nav-link dropdown-item" href="{% url 'settings' %}"><span class="text_style">Settings</span></a>
+                            <a class="nav-link dropdown-item" href="{% url 'logout' %}"><span
+                                    class="text_style">Log Out</span></a>
+                        </div>
+                    </li>
+                </ui>
+            {% else %}
+                <ui class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'registration_page' %}"><span
+                                class="text_style">Register</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}"><span class="text_style">Log In</span></a>
+                    </li>
+                </ui>
+            {% endif %}
+        </div>
+    </nav>
+</header>
+
+<br><br><br>

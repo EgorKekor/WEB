@@ -1,0 +1,45 @@
+{% load static %}
+{% block content %}
+    <div class="row">
+        <span class="headline"> Popular Tags</span>
+    </div>
+    <div class="row">
+        <a class="my-nav-link" href="{% url 'tag' 'JavaScript' %}"> <span class="tags">JavaScript</span></a>&nbsp;
+        <a class="my-nav-link" href="{% url 'tag' 'Java' %}"> <span class="tags red">Java</span></a>&nbsp;
+        <a class="my-nav-link" href="{% url 'tag' 'C#' %}"> <span class="tags">C#</span></a>&nbsp;
+    </div>
+    <div class="row">
+        <a class="my-nav-link" href="{% url 'tag' 'C++' %}"> <span class="tags red">C++</span></a>&nbsp;
+        <a class="my-nav-link" href="{% url 'tag' 'Python' %}"> <span class="tags green">Python</span></a>&nbsp;
+    </div>
+    <div class="row">
+        <a class="my-nav-link" href="{% url 'tag' 'Android' %}"> <span class="tags">Android</span></a>&nbsp;
+        <a class="my-nav-link" href="{% url 'tag' 'Swift' %}"> <span class="tags">Swift</span></a>&nbsp;
+        <a class="my-nav-link" href="{% url 'tag' 'SQL' %}"> <span class="tags red">SQL</span></a>&nbsp;
+    </div>
+    <div class="row">
+        <a class="my-nav-link" href="{% url 'tag' 'iOS' %}"> <span class="tags green">iOS</span></a>&nbsp;
+        <a class="my-nav-link" href="{% url 'tag' 'RUBY' %}"> <span class="tags">RUBY</span></a>&nbsp;
+    </div>
+
+    <div class="row">
+        <span class="headline"> Best Members</span>
+    </div>
+    <div class="row">
+        <div class="col-2">
+
+            <div class="row">
+                <a class="my-nav-link" href="#"> <span class="title_text top_name"> Tyler_Durden</span></a>
+            </div>
+            <div class="row">
+                <a class="my-nav-link" href="#"> <span class="title_text top_name"> Tyler_Durden2</span></a>
+            </div>
+            <div class="row">
+                <a class="my-nav-link" href="#"> <span class="title_text top_name"> Tyler_Durden3</span></a>
+            </div>
+            <div class="row">
+                <a class="my-nav-link" href="#"> <span class="title_text top_name"> Tyler_Durden4</span></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

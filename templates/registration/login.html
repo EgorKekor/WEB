@@ -1,0 +1,46 @@
+{% include "asker/base.html" %}
+{% load static %}
+{% block content %}
+{% include "asker/nav_panel.html" %}
+
+{% if form.errors %}
+    <p class="headline" style="margin-left: 18%";>Вы ввели неверный пароль или такого пользователя не существует. Пожалуйста, попробуйте ещё раз.</p>
+{% endif %}
+
+{% if next %}
+    {% if form.errors %}
+
+    {% else %}
+        <p class="headline" style="margin-left: 30%;">Пожалуйста, авторизуйтесь для просмотра данной страницы</p>
+    {% endif %}
+{% endif %}
+
+    <main role="main" class="container">
+        <div class="row">
+        <div class="col-9">
+            <div class="row">
+                <form method="POST" style="margin-left: 40%;" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label><span class="text_style">Логин</span></label><br>
+                        {{ form.username }}
+                    </div>
+                    <div class="form-group">
+                        <label><span class="text_style">Пароль</span></label><br>
+                        {{ form.password }}
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Войти"/>
+
+                    <input type="hidden" name="next" value="{{ next }}"/>
+
+                    <a class="nav-link" href="#"><span class="text_style">Create new account</span></a>
+                </form>
+            </div>
+        </div>
+            <div class="col-3">
+                {% include "asker/right_tags.html" %}
+            </div>
+        </div>
+    </main>
+
+{% endblock %}
