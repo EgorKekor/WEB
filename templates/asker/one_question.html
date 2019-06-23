@@ -1,30 +1,30 @@
 {% load static %}
 <div class="row">
-    <div class="card flex-md-row mb-4 shadow-sm h-md-250 size_blog">
-        <table>
-            <tr>
-                <td>
-                    <img class="mr-3" src="{{ question.author.upload.url }}" alt="" width="32"
-                         height="32" hspace="10" vspace="10">
-                </td>
-                <td>
-                    <a class="nav-link" href="{% url 'question' question.id %}"><span
-                            class="question">{{ question.title }}</span></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#"><img class="arr_button" src="{% static "images/arr_up.png" %}"
-                                     width="10" height="10"></a><br>
-                    <span class="arr_button"
-                          style="vertical-align: middle;">{{ question.raiting }}</span><br>
-                    <a href="#"><img class="arr_button" src="{% static "images/arr_down.png" %}"
+    <div class="card container mr-4 mt-4">
+        <div class="row">
+            <div class="col-1">
+                <img class="rounded mx-auto d-block" src="{{ question.author.upload.url }}" alt="" width="32"
+                     height="32" hspace="0" vspace="0">
+            </div>
+            <div class="col-11 text-left">
+                <a class="nav-link" href="{% url 'question' question.id %}"><span
+                        class="question">{{ question.title }}</span></a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-1 align-self-center text-center">
+                <a href="#"><img class="arr_button rounded" src="{% static "images/arr_up.png" %}"
                                      width="10" height="10"></a>
-                </td>
-                <td>
-                    <p class="card-text mb-auto d-flex flex-column align-items-start"
+                    <span class="arr_button rounded"
+                          style="vertical-align: middle;">{{ question.raiting }}</span>
+                    <a href="#"><img class="arr_button rounded" src="{% static "images/arr_down.png" %}"
+                                     width="10" height="10"></a>
+            </div>
+            <div class="col-11">
+                <p class="card-text mb-auto d-flex flex-column align-items-start"
                        style="margin-right: 5px;">{{ question.text }}</p>
-                    <br>
                     <a href="{% url 'question' question.id %}"> <span
                             class="top_name"> answer</span></a>
                     <span class="text_style"
@@ -34,8 +34,7 @@
                         <a href="{% url 'tag' tag.title %}"> <span
                                 class="top_name"> {{ tag.title }}</span></a>
                     {% endfor %}
-                </td>
-            </tr>
-        </table>
+            </div>
+        </div>
     </div>
 </div>

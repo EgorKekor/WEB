@@ -129,13 +129,9 @@ class Command(BaseCommand):
 
 
     def handle(self, *args, **options):
-        # self.create_users()
-        # self.create_questions()
-        # self.create_answers()
+        self.create_users()
+        self.create_questions()
+        self.create_answers()
         self.create_likes()
         self.create_tags()
 
-
-test = Command()
-test.handle()
-print("work")

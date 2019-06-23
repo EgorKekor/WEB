@@ -41,6 +41,14 @@ A:active {
     margin-left: 20px;
 }
 
+.main_margin {
+    margin-top: 70px;
+}
+
+.head_margin {
+    margin-bottom: 70px;
+}
+
 .tags {
     font-size: 16px;
 }

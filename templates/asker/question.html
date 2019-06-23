@@ -2,75 +2,78 @@
 {% load static %}
 {% block content %}
     <!-- Begin page content -->
-    <main role="main" class="container">
+    <main role="main" class="container main_margin">
         <div class="row">
             <div class="col-9">
-                <!-- "Блоги" (вопросы) -->
+
+
+            <div class="card container mr-4 mt-4">
                 <div class="row">
-                    <table>
-                        <tr>
-                            <td>
-                                <img class="mr-3" src="{{ question.0.author.upload.url }}" alt="" width="40"
+                     <div class="col-1">
+                        <img class="rounded mx-auto d-block" src="{{ question.0.author.upload.url }}" alt="" width="40"
                                      height="40" hspace="10" vspace="10">
-                            </td>
-                            <td>
-                                <a class="nav-link" href="{% url 'question' question.0.id %}"><span
+                    </div>
+                    <div class="col-11 text-left">
+                        <a class="nav-link" href="{% url 'question' question.0.id %}"><span
                                         class="question">{{ question.0.title }}</span></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#"><img class="arr_button" src="{% static "images/arr_up.png" %}" width="10"
-                                                 height="10"></a><br>
-                                <span class="arr_button">{{ question.0.raiting }}</span><br>
-                                <a href="#"><img class="arr_button" src="{% static "images/arr_down.png" %}" width="10"
+                    </div>
+                </div>
+
+
+                    <div class="row">
+                        <div class="col-1 align-self-center text-center">
+                            <a href="#"><img class="arr_button" src="{% static "images/arr_up.png" %}" width="10"
                                                  height="10"></a>
-                            </td>
-                            <td>
-                                <p class="card-text mb-auto d-flex flex-column align-items-start">{{ question.0.text }}</p>
-                                <br>
+                            <span class="arr_button">{{ question.0.raiting }}</span>
+                            <a href="#"><img class="arr_button" src="{% static "images/arr_down.png" %}" width="10"
+                                                 height="10"></a>
+                        </div>
+                        <div class="col-11">
+                            <p class="card-text mb-auto d-flex flex-column align-items-start">{{ question.0.text }}</p>
                                 <span class="text_style" style="white-space: nowrap; margin-left: 6px"> Tags:</span>
                                 {% for tag in question.0.tags.all %}
                                     <a href="{% url 'tag' tag.title %}"> <span class="top_name"> {{ tag.title }}</span></a>
                                 {% endfor %}
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <br>
+                        </div>
+                    </div>
+            </div>
+
+
+
                 {% for answer in question.1 %}
+                    <div class="card container mr-4 mt-4">
+
                     <div class="row">
-                        <div class="card flex-md-row mb-4 shadow-sm h-md-250 size_blog">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <img class="mr-3" src="{{ answer.author.upload.url }}" alt="" width="32"
+                         <div class="col-1">
+                            <img class="rounded mx-auto d-block" src="{{ answer.author.upload.url }}" alt="" width="32"
                                              height="32" hspace="10" vspace="10">
-                                    </td>
-                                    <td>
-                                        <p class="card-text mb-auto d-flex flex-column align-items-start"
+                        </div>
+                        <div class="col-11 text-left">
+                            <p class="card-text mb-auto d-flex flex-column align-items-start"
                                            style="margin-right: 5px;">{{ answer.author.username }}</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="#"><img class="arr_button" src="{% static "images/arr_up.png" %}"
-                                                         width="10" height="10"></a><br>
-                                        <span class="arr_button">{{ answer.raiting }}</span><br>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                         <div class="col-1">
+                            <a href="#"><img class="arr_button" src="{% static "images/arr_up.png" %}"
+                                                         width="10" height="10"></a>
+                                        <span class="arr_button">{{ answer.raiting }}</span>
                                         <a href="#"><img class="arr_button" src="{% static "images/arr_down.png" %}"
                                                          width="10" height="10"></a>
-                                    </td>
-
-                                    <td>
-                                        <p class="card-text mb-auto d-flex flex-column align-items-start"
-                                           style="margin-right: 5px;">{{ answer.text }}</p>
-                                    </td>
-                                </tr>
-                            </table>
                         </div>
+                        <div class="col-11 text-left">
+                            <p class="card-text mb-auto d-flex flex-column align-items-start"
+                                           style="margin-right: 5px;">{{ answer.text }}</p>
+                        </div>
+                    </div>
                     </div>
                 {% endfor %}
 
+
+
+                <div class="card container mr-4 mt-4">
                 <div class="row">
                     <form>
                         <div class="form-group">
@@ -82,15 +85,18 @@
                             <input type="checkbox" class="form-check-input" id="Check">
                             <label class="form-check-label" for="Check"><span class="text_style">Check me please</span></label>
                         </div>
-                        <br>
                         <button type="submit" class="btn btn-outline-secondary">Answer</button>
-                        <br><br>
                     </form>
                 </div>
             </div>
+            </div>
+
+
+
             <div class="col-3">
                 {% include "asker/right_tags.html" %}
             </div>
+        </div>
         </div>
     </main>
 {% endblock %}
